@@ -31,3 +31,13 @@ EXCEPTION
         mensajeRespuesta := SQLERRM;
 END sp_insertAndListProducts;
 /
+
+--- CALL SP ---
+
+variable rc refcursor;
+variable v_codigoRespuesta NUMBER;
+variable v_mensajeRespuesta VARCHAR2;
+exec sp_insertAndListProducts('Producto03',SYSDATE,:rc, :v_codigoRespuesta,:v_mensajeRespuesta);
+print rc;
+print v_codigoRespuesta;
+print v_mensajeRespuesta;
